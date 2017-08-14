@@ -1,0 +1,130 @@
+<div class="container">
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar">
+    <h4>{{transaction.service | uppercase}}</h4>
+  </div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="transactionDetailsForm" ng-submit="submitForm()" novalidate>
+
+      <!-- INBOX MESSAGE -->
+      <div class="form-group"> <!-- ng-class="{ 'has-error' : transactionDetailsForm.transactionType.$invalid  && (transactionDetailsForm.transactionType.$dirty || submitted)}"-->
+        <div ng-show="transaction.status=='SHORT_LISTED' ||  transaction.status=='BOOKED' || transaction.status=='CANCEL' || transaction.status=='DISPUTE'">
+          <h4>
+            <div class="row">
+              <div class="pull-left">
+                <p>Date<br>{{transaction.date}}</p>
+              </div>
+              <div class="pull-right">
+                <p>Time<br>{{transaction.time}}</p>
+              </div>
+            </div>
+
+            <div class="row">
+              Status: {{transaction.status | uppercase}}<br>
+              Area PinCode: {{transaction.areaPinCode}}<br>
+              Address: {{transaction.address}}<br>
+              Area: {{transaction.area}}<br>
+              Phone Number: {{transaction.phoneNumber}}<br>
+              Alternate Phone Number: {{transaction.altPhoneNumber}}<br>
+              <div ng-show="transaction.status=='SHORT_LISTED' ||  transaction.status=='BOOKED'">
+                Description: {{transaction.description}}<br>
+              </div>
+              Sent Request to Vendors:<br>
+
+              <!-- Status: 'SHORT_LISTED' -->
+              <div class="ContentShortListedVendor" ng-show="transaction.status=='SHORT_LISTED' || transaction.status=='CANCEL'">
+
+                <table st-table="rowCollection" class="table">
+                  <tbody>
+                    <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in transaction.vendors">
+                      <td>
+                        <div>
+                          <!-- NAME & FAVOURITE UI -->
+                          <h4>{{row.vendorName}}</h4> <rating ng-model="row.isFavourite" max="1" readonly="true" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" ng-show="row.isFavourite"></rating>
+                          <br>
+                          <!-- RATINGS UI -->
+                          <rating ng-model="row.userRating" max="row.maxRatings" readonly="true" state-on="'glyphicon-star'" state-off="'glyphicon-star-empty'"></rating>
+                          <p ng-show="row.wage!=''">Wage: {{row.wage}}</p>
+                          <p ng-show="row.estimate!=null">Estimate: {{row.estimate}}</p>
+                        </div>
+                      </td>
+
+                      <td>
+
+                        <div class="pull-right" ng-show="transaction.status!='CANCEL' && transaction.status!='DISPUTE'">
+                          <button type="submit" class="btn btn-primary-parijan" ng-show="transaction.status!='bookedVendor'" ng-click="bookDeal( transaction.transactionId, row.vendorId )" ng-disabled="!row.bookedByVendor" >Book</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- BOOKED -->
+              <div ng-show="transaction.status=='BOOKED' || transaction.status=='DISPUTE'">
+                Booked Vendor:<br>
+                <div>
+                  <!-- NAME & FAVOURITE UI -->
+                  <h4>{{transaction.vendorName}}</h4> <rating ng-model="transaction.isFavourite" max="1" readonly="true" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" ng-show="transaction.isFavourite"></rating>
+                  <br>
+                  <!-- RATINGS UI -->
+                  <rating ng-model="transaction.userRating" max="transaction.maxRatings" readonly="true" state-on="'glyphicon-star'" state-off="'glyphicon-star-empty'"></rating>
+                  <p ng-show="transaction.wage!=null">Cost: {{transaction.wage}}</p>
+                  <p ng-show="transaction.estimate!=null">Cost: {{transaction.estimate}}</p>
+                </div>
+              </div>
+
+              <!-- CANCEL & RESCHEDULE buttons -->
+              <div class="row" ng-show="transaction.status=='SHORT_LISTED'">
+                <button class="btn btn-primary-parijan col-sm-offset-3 col-sm-3" href="#/cancelordispute/:transaction" type="submit" ng-click="gotoCancelDisputePage('CANCEL')">Cancel</button>
+                <button class="btn btn-primary-parijan col-sm-3" href="#" type="submit" ng-click="gotoRescheduleTxnPage()">Reschedule</button>
+              </div>
+
+              <div class="row" ng-show="transaction.status=='BOOKED'">
+                <button ng-show="!transaction.timeElapsed" class="btn btn-primary-parijan col-sm-offset-3 col-sm-3" href="#/cancelordispute/:transaction" type="submit" ng-click="gotoCancelDisputePage('CANCEL')">Cancel</button>
+                <button ng-show="transaction.timeElapsed" class="btn btn-primary-parijan col-sm-offset-3 col-sm-3" href="#/cancelordispute/:transaction" type="submit" ng-click="gotoCancelDisputePage('DISPUT')">Dispute</button>
+              </div>
+
+              <!-- Status: 'CANCEL', 'DISPUTE' -->
+              <div ng-show="transaction.status=='CANCEL' || transaction.status=='DISPUTE'">
+                <br>
+                <div>
+                  {{transaction.status}} action raised by: {{transaction.cancelledBy}} {{transaction.raisedBy}}<br>
+                  Reason: {{transaction.remarks}}
+                </div>
+              </div>
+              </h4>
+            <div ng-show="transaction.status=='DISPUTE' && transaction.docImage != ''">
+              <img ng-src="{{transaction.docImage}}" height="80%" width="100%">
+            </div>
+
+            </div>
+
+          <!-- Status: 'WORK_COMPLETED', 'TXN_COMPLETED' -->
+          <div ng-show="transaction.status=='WORK_COMPLETED' || transaction.status=='TXN_COMPLETED'">
+            <img ng-src="{{transaction.docImage}}" height="80%" width="100%">
+            <!--img ng-src="img/estimate_5410.jpg" height="100%" width="100%"-->
+            <!-- RATINGS UI -->
+            My Ratings: <rating ng-model="transaction.myRatings" max="transaction.maxRatings" readonly="transaction.myRatings==''" state-on="'glyphicon-star'" state-off="'glyphicon-star-empty'"></rating>
+
+            <div class="row">
+              <button class="btn btn-primary-parijan  col-sm-offset-3 col-sm-3" href="#" type="submit" ng-click="sendRatingsOrPay()">{{btnAtcion}}</button>
+              <button class="btn btn-primary-parijan col-sm-3" ng-show="!transaction.timeElapsed" href="#/cancelordispute/:transaction" type="submit" ng-click="gotoCancelDisputePage('DISPUTE')">Dispute</button>
+            </div>
+          </div>
+
+          <!-- RECEIPT -- >
+<div ng-show="transaction.status=='receiptReceived' || transaction.status=='completed'">
+<img ng-src="{{transaction.docImage}}" height="80%" width="100%">
+<button class="btn btn-primary-parijan col-sm-3" href="#/cancelordispute/:transaction" type="submit" ng-click="gotoCancelDisputePage('DISPUTE')">Dispute</button>
+</div-->
+
+
+        </div>
+
+        </form>
+      </div>
+  </div>

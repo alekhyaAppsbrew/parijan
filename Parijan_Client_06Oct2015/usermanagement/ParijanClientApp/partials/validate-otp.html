@@ -1,0 +1,22 @@
+<div class="container">
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar"><h4>VALIDATE OTP PAGE</h4></div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="validateOTPForm" ng-submit="submitForm()" novalidate>
+
+      <!-- OTP -->
+      <div class="form-group" ng-class="{ 'has-error' : validateOTPForm.otp.$invalid && (validateOTPForm.otp.$dirty || submitted)}">
+        <label>OTP</label>
+        <input type="number" name="otp" class="form-control" ng-model="user.otp" placeholder="Your OTP" ng-required="true">
+        <p ng-show="validateOTPForm.otp.$error.required && (validateOTPForm.otp.$dirty || submitted)" class="help-block">OTP is required.</p>
+      </div>
+
+      <!-- ng-disabled FOR ENABLING AND DISABLING SUBMIT BUTTON -->
+      <!--<button type="submit" class="btn btn-primary" ng-disabled="validateOTPForm.$invalid">Register</button>-->
+      <button href="#/searchvendor" type="submit" class="btn btn-primary-parijan">Send</button>
+    </form>
+  </div>
+</div>

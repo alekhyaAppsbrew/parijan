@@ -1,0 +1,106 @@
+<!--index.html contains html code for login page-->
+
+
+<!doctype html>
+<html lang="en-US">
+<head>
+
+<meta charset="utf-8">
+<title>Dispute</title>
+
+<!--style sheet link for the font-->
+<!--style sheet link for the login page css-->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+<link rel="stylesheet" href="/views/index.css">
+	
+
+</head>
+
+<!--the body of the page starts here-->
+
+<body>
+<div id="result1">
+<!--dividing the page to place the header-->
+<!--User Management is the header for the page-->
+<div class="header clearfix" style="background-color:  #FA7575; 
+min-width: 1000px; overflow:hidden;" >
+<h1 style="margin-left:535px; font-family: 'Varela Round', Arial, Helvetica,
+sans-serif; font-size:35px;"><font color="white">User Management</font></h1></div>
+
+
+<!--this is the division to place the login area-->
+<!--this consists of input fields of email id password-->
+<div id="login">
+<h2><span class="fontawesome-lock"></span>Enter Details</h2>
+
+<form   id="myform">
+
+<fieldset>
+<p><label for="email" ><font size="4">Transaction-id</font></label></p>
+
+<p><input type="text" id="transactionId" name="transactionId"></p>
+
+<p><label for="email" ><font size="4">Please enter your reason for Cancellation</font></label></p>
+
+<p><textarea name="remarks" form="myform" id="remarks" cols="40"></textarea></p>
+
+<!-- JS because of IE support; better: placeholder="password" -->
+<p><button id="sub">Submit</button></p></fieldset>
+<div id="result0"></div>
+</div></div>
+</form>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+
+<script>
+
+$("#sub").click(function(e)
+{
+  e.preventDefault();
+
+  //Before passing the data the data must be serialised
+  //
+  var data1 = $("#transactionId").val();
+  var data2 = $("#remarks").val();
+
+  var dataString = '&transactionId='+data1+'&remarks='+data2;
+ 
+  $.ajax({
+    
+    async       : true,
+    type        : 'POST',
+    url         : 'http://localhost:3004/cancelRequest',
+    data        : dataString,
+
+    // If the POST is success
+    success     :function(response){
+                  alert(response);
+                  if(response){
+                  alert("cancelRequest success");
+                  }
+                  
+                  else {
+                  alert("cancelRequest failed");
+                  }
+                 },
+
+   // If the POST is not working
+    error       :function (xhr, status, error) 
+                 {
+                   alert('Error: ' + error);
+
+                 }
+            
+
+   });
+
+});
+
+
+</script>
+
+ <!-- end login -->
+
+</body>	
+</html>

@@ -1,0 +1,156 @@
+<!--adminhome.html contains html code for account page for admin-->
+<!--this page contains the 5 division-->
+<!--first division is for the displaying contents of profile-->
+<!--sec contains 3division which links to account management,logged in users
+and list of recent users-->
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js" type="text/javascript"></script>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <!--style sheet link for the font-->
+    <link rel="stylesheet" 
+    href="http://fonts.googleapis.com/css?family=Varela+Round">
+    <!--style sheet link for the account page css-->
+    <link rel="stylesheet" href="adminhomepage2.css">
+    <link rel="stylesheet" href="adminhomepage22.css">
+    <script  type="text/javascript" src="createac.js"></script>
+    <script language="javascript" type="text/javascript" src="randompass.js">
+    </script>
+  </head>
+  <!--the body of the page starts here-->
+  <body>
+    <!--this is the first division which is used to place the main heading
+        and links to home and logout pages-->
+    <!--this follows the css class header-->
+    <div class="header clearfix" style="background-color: #FA7575;
+                min-width: 100%; overflow:hidden;" >
+      <p style="margin-left:10px; margin-top:30px; font-family: 'Varela Round',
+               Arial, Helvetica, sans-serif; font-size:25px;">
+        <font color="white">User Management</font>
+      </p>
+      <!--this is the div for home and logout links which follows the css 
+          class of nav and menu-->
+      <div class="clearfix">
+        <div class="nav">
+          <ul class="menu">
+            <li><a href="adminhome.html"><font size="4" color="white" >Home</font></a></li>
+            <li><a href="index.html"><font size="4" color="white">Logout</font></a></li>	
+          </ul>
+        </div><!-- End of Navigation -->
+      </div><!-- End of Header -->
+    </div><!-- End of Container -->
+    <!--this the division of the main page called as my profile
+        which contains the details
+        of user. includes name,status,emailid, dob, location--> 
+    <!--and link to edit the profile-->
+    <div id="login" style="min-width:400px;">
+    <h2><span class="fontawesome-lock"></span>
+    <font style="font-family: 'Varela Round', Arial, Helvetica, sans-serif; font-size:20px; "
+          color="white">Register</font></h2>
+    <fieldset>
+      <form action="/adminhomepage2" method="POST"  id="myform1">
+        <table cellspacing='0' cellpadding='1'>
+          <td><label for="fname">First Name:</label> </td>
+          <tr><td align='auto'><input name="fname" id="firstname" style="height:25px" size="40" maxlength="50" type="text" placeholder="your first name">
+          </td></tr>
+          <td><label for="lname">Last Name:</label> </td>
+          <tr><td align='auto'><input name="lastname" id="lastname" style="height:25px" size="40" maxlength="50" type="text" placeholder="your last name">
+          </td></tr>
+          <td><label for="userid">Mobile Number:</label> </td>
+          <tr><td align='auto'><input name="mobilenumber" id="mobilenumber" style="height:25px" size="40" maxlength="50" type="text" placeholder="your mobile number"> 
+          </td></tr>
+          <td><label for="userid">Password:</label> </td>
+          <tr><td align='auto'><input name="password" id="password" style="height:25px" size="40" maxlength="50" type="password" placeholder="Password">
+          </td></tr>
+          <!--button for submitting the account-->
+          <tr>
+          <td align='centre'><input name="Submit" id="sub" value="Generate OTP" type="submit" ><p id="result2"></p> </td>
+          </tr>
+        </table>
+        <!-- JS because of IE support; better: placeholder="password" -->
+      </fieldset>
+    </form>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+
+    $("#sub").click(function(e)
+    {
+      e.preventDefault();
+
+      //Before passing the data the data must be serialised
+      var data1 = $("#firstname").val();
+      var data2 = $("#lastname").val();
+      var data3 = $("#mobilenumber").val();
+      var data4 = $("#password").val();
+      var dataString = '&firstname='+data1+'&lastname='+data2+'&mobilenumber='+data3+'&password='+data4;
+      $.ajax({
+        async       : true,
+        type        : 'POST',
+        url         : 'http://localhost:3004/generate_OTP',
+        data        : dataString,
+
+        // If the POST is success
+        success     :function(response){
+                       alert(response);
+                       if(response){
+                         alert("generate OTP success");
+                       }
+                       else {
+                         alert("login failed");
+                       }
+                     },
+
+        // If the POST is not working
+        error       :function (xhr, status, error) 
+                     {
+                       alert('Error: ' + error);
+                     }
+      });
+    });
+    </script>
+  </div> <!-- end class login -->
+</div> <!-- end class login5 -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

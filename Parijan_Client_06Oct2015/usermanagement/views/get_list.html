@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js" type="text/javascript"></script>
+
+</head>
+<body>
+<!--options for filter the list-->
+
+<select id="slct1" name="slct1">
+   <option val="1">Show list by</option>
+   <option value="firstName">firstName</option>
+   <option value="LastName">lastName</option>
+   <option value="country">country</option>
+   <option value="role">Role</option>
+</select>
+
+<hr>
+<div id="slct2"></div>
+
+
+<hr />
+</body>
+</html>
+<script type="text/javascript">
+
+$("#slct1").change(function(){
+var data;
+var datas;
+ var r= $('<input type="button" value="go" id="lNamebtn">');
+ var s= $('<input type="button" value="go" id="fNamebtn">');
+//if option is to filter the list by first name append text box//
+if($("#slct1").val()=="firstName"){
+$("#slct2").empty().append($("<input>").attr("id","fName")).append(s);
+$("#fNamebtn").click(function(){
+data = $("#fName").val();
+datas = $("#slct1").val();
+alert(data);
+post(data,datas);
+});
+}
+
+//if option is to filter the list by last name append text box//'
+
+if($("#slct1").val()=="LastName"){
+$("#slct2").empty().append($("<input>").attr("id","lName")).append(r)	;
+$("#lNamebtn").click(function(){
+datas = $("#slct1").val();
+data = $("#lName").val();
+alert(data);
+post(data,datas);
+});
+}
+
+//if option is to filter the list by role append roles//
+if($("#slct1").val()=="role"){
+$("#slct2").empty().append($("<select>").attr("id","Domain"));
+$("#Domain").append($("<option>").attr("value", "1").attr("selected", "selected").text("---Select role---"));
+$("#Domain").append($("<option>").attr("value", "admin").attr("id", "Admin").text("Admin"));
+$("#Domain").append($("<option>").attr("value", "CEO").attr("id", "CEO").text("CEO"));
+$("#Domain").append($("<option>").attr("value", "user").attr("id", "user").text("user"));
+$("#Domain").change(function(){
+if($("#Domain").val()!="1"){
+datas = $("#slct1").val();
+data = $("#Domain").val();
+alert(data);
+post(data,datas);
+}
+});
+}
+
+//if option is to filter the list by country append country list/
+if($("#slct1").val()=="country"){
+$("#slct2").empty().append($("<select>").attr("id","Domain"));
+$("#Domain").append($("<option>").attr("value", "1").attr("selected", "selected").text("---Select country---"));
+$("#Domain").append($("<option>").attr("value", "2").attr("id", "country1").text("country1"));
+$("#Domain").append($("<option>").attr("value", "3").attr("id", "country2").text("country2"));
+$("#Domain").append($("<option>").attr("value", "4").attr("id", "country3").text("country3"));
+$("#Domain").change(function(){
+if($("#Domain").val()!="1"){
+datas = $("#slct1").val();
+data = $("#Domain").val();
+alert(data);
+post(data,datas);
+}
+});
+}
+ 
+function post(data,datas){
+
+         //Before passing the data the data must be serialised
+         
+         var data1 = datas;
+         var data2 =data;
+         alert(data1+""+data2);
+         
+        
+         var dataString = 'fieldName='+data1+'&fieldValue='+data2;
+ 
+
+	$.ajax({
+		
+                async       : true,
+                type        : 'POST',
+		url         : 'http://localhost:3004/filter',
+                crossDomain : true,
+		data        : dataString,
+		success     : function(response){alert(response);},
+                error       : function(){alert("POST IS NOT WORKING");}
+		
+	});
+
+
+        
+}
+});
+</script>

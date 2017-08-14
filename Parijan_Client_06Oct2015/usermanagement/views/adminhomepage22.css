@@ -1,0 +1,242 @@
+/*This includes the css code for the login page-adminhome.html*/
+/*this is used to creation of navigation menu*/
+/*this navigation menu includes home and logout menu*/
+
+
+/*styling the a tag*/
+a {
+margin-top:-30px;
+font: normal 16px Helvetica, Verdana, Geneva, sans-serif;
+color: #3F3F3F;	
+}
+
+/*this is the class used by div tag
+which is the parent of li tag 
+this styles the li tag
+*/
+.menu > li { 
+list-style: none; 
+float:left;	
+}
+
+
+/*.clearfix:before, 
+.clearfix:after { 
+display: table; 
+content: ""; 
+}
+
+
+
+.clearfix:after { 
+clear: both;
+ }*/
+
+/*Some CSS properties are only designed for a certain media. 
+For example the "voice-family" property is designed for aural user agents. 
+Some other properties can be used for different media types. 
+For example, the "font-size" property can be used for both screen 
+and print media, but perhaps with different values. 
+A document usually needs a larger font-size on a 
+screen than on paper, and sans-serif fonts are easier 
+to read on the screen, while serif fonts are easier to read on paper.*/
+
+
+/*this is Used for computer screens*/
+
+@media only screen and (max-width: 768px) {
+
+
+.menu {
+display: none; 
+opacity: 0; 
+width: 100%; 
+position: absolute; 
+right: 0; 
+}
+
+
+
+.menu > li { 
+display: block; 
+width: 100%; 
+margin: 0; 
+}
+
+
+.menu > li > a {
+display: block; 
+width: 100%;
+text-decoration: none;
+-webkit-box-sizing: border-box; 
+-moz-box-sizing: border-box; 
+box-sizing: border-box; 
+}
+
+
+/*
+.toggle { 
+display: block; 
+position: relative; 
+cursor: pointer; 
+-webkit-touch-callout: none; 
+
+user-select: none;
+}
+*/
+#toggle:checked + div .menu { 
+display: block;
+opacity: 1;
+}
+}
+
+
+.nav {
+display: block;
+float: right;
+}
+
+.nav, .menu, .menu > li, .menu > li > a {
+height: 100%;
+}
+
+.menu > li > a{
+display: block;
+padding: 12px 12px;
+text-decoration: none;
+font-weight: normal;
+font-size: 16px;
+line-height: 1;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-transition: all 0.25s linear;
+-moz-transition: all 0.25s linear;
+-o-transition: all 0.25s linear;
+transition: all 0.25s linear;
+}
+
+
+.menu > li > a:hover, .menu > li > a:focus{
+background: #C0C0C0;
+/*box-shadow: inset 0px 5px #C0C0C0;
+color:#C0C0C0;
+padding: 2px 10px 20px;*/
+}
+
+/*
+.toggle{
+z-index: 2;
+}*/
+
+
+@media only screen and (max-width: 768px){
+.menu{
+
+border-top: 1px solid #C0C0C0;
+}
+
+
+.menu, .menu > li, .menu > li > a{
+height: auto;
+}
+
+.menu > li > a{
+padding: 2px 2px;
+}
+/*
+.menu > li > a:hover, .menu > li > a:focus{
+background: #F2F2F2;
+box-shadow: inset 5px 0px #C0C0C0;
+padding: 5px 5px 5px 5px;
+}
+/*
+.toggle:after {
+content: attr(data-open);
+display: block;
+width: 5px;
+margin: 33px 0;
+padding: 10px 50px;
+background: #C0C0C0;
+-webkit-border-radius: 2px;
+border-radius: 2px;
+text-align: center;
+font-size: 12px;
+
+-webkit-transition: all 0.5s linear;
+-moz-transition: all 0.5s linear;
+-o-transition: all 0.5s linear;
+transition: all 0.5s linear;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.toggle:hover:after{
+background:#C0C0C0;
+}
+
+#toggle:checked + div .toggle:after{
+content: attr(data-close);
+}
+}
+/*
+@media only screen and (max-width: 479px){
+.header > h1 {
+text-align: center;
+}
+.header > h1, .nav, .toggle:after{
+float: none;
+}
+.toggle:after {
+text-align: center; width: 100%;
+}
+}
+
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 140px;
+	height:36px;
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 200px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+*/
+
+
+

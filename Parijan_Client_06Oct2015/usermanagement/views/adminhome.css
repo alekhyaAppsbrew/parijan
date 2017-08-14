@@ -1,0 +1,95 @@
+var randomstring;
+var v;
+var colours = ["#000000", "#FF0000", "#990066", "#FF9966", "#996666", "#00FF00", "#CC9933"],  idx;
+$(document).ready(function() {
+document.getElementById("userid2").value="";
+document.getElementById("textcode").value="";
+getCaptcha();
+function getCaptcha(){
+
+    var chars = "0Aa1Bb2Cc3Dd4Ee5Ff6Gg7Hh8Ii9Jj0Kk1Ll2Mm3Nn4Oo5Pp6Qq7Rr8Ss9Tt0Uu1Vv2Ww3Xx4Yy5Zz";
+    var string_length = 5;
+    var captchastring = '';
+    for (var i=0; i<string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        captchastring += chars.substring(rnum,rnum+1);
+    }
+    v=document.getElementById("randomfield").innerHTML = captchastring;
+
+ var div = $('#randomfield'); 
+    var chars = div.text().split('');
+    div.html('');     
+    for(var i=0; i<chars.length; i++) {
+        idx = Math.floor(Math.random() * colours.length);
+        var span = $('<span>' + chars[i] + '</span>').css("color", colours[idx]);
+        div.append(span);
+    }
+
+
+
+}
+
+
+
+
+function validateuserid() {
+
+
+fn=document.getElementById("userid2");
+
+
+ var illegalChars = /\W/;
+ 
+var error=" ";
+    if ( document.getElementById("userid2").value=="") {
+
+     document.getElementById("userid2").style.background = '#F8DEE0';
+     error="--You didn't enter userid.\n"
+
+    
+    }
+if((document.getElementById("textcode").value!=v)&&(document.getElementById("textcode").value!="")){error+="--Captcha Text does not match.\n";  
+ document.getElementById("textcode").style.background = '#F8DEE0';
+
+}
+if((document.getElementById("textcode").value=="")){error+="--Enter Captcha Text.\n";  
+ document.getElementById("textcode").style.background = '#F8DEE0';
+
+}
+ if((document.getElementById("userid2").value=="")||(document.getElementById("textcode").value!=v)||
+(document.getElementById("textcode").value=="")){if((document.getElementById("userid2").value!="")){document.getElementById("userid2").style.background = 'white';document.getElementById("textcode").value="";}if((document.getElementById("textcode").value!="")&&(document.getElementById("textcode").value==v)){document.getElementById("textcode").style.background = 'white';document.getElementById("userid").value="";document.getElementById("textcode").value="";}
+alert(error);
+
+
+
+getCaptcha();}
+
+else if ((document.getElementById("userid2").value!="")&&(document.getElementById("textcode").value==v)&&(document.getElementById("textcode").value!="")){
+       document.getElementById("userid2").style.background = 'white';
+       document.getElementById("textcode").style.background = 'white';
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	var string_length = 8;
+	 randomstring = '';
+
+	for (var i=0; i<string_length; i++) {
+		var rnum = Math.floor(Math.random() * chars.length);
+		randomstring += chars.substring(rnum,rnum+1);
+	}
+	alert("password"+randomstring);
+}
+
+
+
+
+
+}
+$("#Refresh").click(function(){
+
+getCaptcha();
+});
+$("#sub").click(function(){
+validateuserid();
+});
+});
+
+

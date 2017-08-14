@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Add the css responsible for the heart fill rating system -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  </head>
+  <style>
+    .rating {
+		  unicode-bidi: bidi-override;
+		  direction: rtl;
+		  text-align: center;
+		}
+		.rating > span {
+		  display: inline-block;
+		  position: relative;
+		  width: 2.1em;
+		}
+		.rating > span:hover,
+		.rating > span:hover ~ span {
+		  color: transparent;
+		}
+		.rating > span:hover:before,
+		.rating > span:hover ~ span:before {
+		   content: "\2605";
+		   position: absolute;
+		   left: 0;
+		   color: gold;
+		}
+  </style>
+  <body>
+    <!-- Create a input field for heart-fill-->
+    <div class="rating">
+      <span>&#9734</span><span>&#9734</span><span>&#9734</span><span>&#9734</span><span>&#9734</span>
+    </div>
+  </body>
+</html>

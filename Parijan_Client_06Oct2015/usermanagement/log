@@ -1,0 +1,99 @@
+
+------------------------------------------------------------------------------
+Express server listening on port 3004
+------------------------------------------------------------------------------
+ URL :/getServiceTypeList - API NAME :getServiceTypeList  METHOD TYPE : GET
+INPUT:
+NO INPUT FOR THIS MODULE
+OUTPUT:
+response:["Technical Writer","Programmer","Soft Skills Trainer","Actor"]
+------------------------------------------------------------------------------
+ URL :/getServiceTypeList - API NAME :getServiceTypeList  METHOD TYPE : GET
+INPUT:
+NO INPUT FOR THIS MODULE
+OUTPUT:
+response:["Technical Writer","Programmer","Soft Skills Trainer","Actor"]
+------------------------------------------------------------------------------
+ URL :/login - API NAME :validateUserWithoutview  METHOD TYPE : POST
+INPUT:
+userName:676
+password:p
+OUTPUT:
+response:true
+------------------------------------------------------------------------------
+ URL :/getServiceTypeList - API NAME :getServiceTypeList  METHOD TYPE : GET
+INPUT:
+NO INPUT FOR THIS MODULE
+OUTPUT:
+response:["Technical Writer","Programmer","Soft Skills Trainer","Actor"]
+------------------------------------------------------------------------------
+ URL :/getInboxData - API NAME :getInboxData  METHOD TYPE : POST
+INPUT:
+pageSize:10
+pageNumber:1
+request.session.userName:676
+OUTPUT:
+response:{"inboxData":[{"transactionId":5453,"service":"Programmer","date":"2015-11-20T18:30:00.000Z","time":"00:00:00","status":"SHORT_LISTED"},{"transactionId":5452,"service":"Programmer","date":"1992-01-20T18:30:00.000Z","time":"00:00:00","status":"SHORT_LISTED"},{"transactionId":5451,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:05:30","status":"BOOKED"},{"transactionId":5450,"service":"Actor","date":"1992-01-21T18:30:00.000Z","time":"12:04:09","status":"BOOKED"},{"transactionId":5449,"service":"Actor","date":"1992-01-21T18:30:00.000Z","time":"12:05:30","status":"TXN_COMPLETED"},{"transactionId":5448,"service":"Actor","date":"1992-01-22T18:30:00.000Z","time":"11:04:00","status":"BOOKED"},{"transactionId":5447,"service":"Programmer","date":"1992-01-21T18:30:00.000Z","time":"12:04:09","status":"CANCEL"},{"transactionId":5446,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"DISPUTE"},{"transactionId":5445,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"TXN_COMPLETED"},{"transactionId":5444,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"BOOKED"}],"apiStatus":true}
+------------------------------------------------------------------------------
+ URL :/getTransactionDetails - API NAME :getTransactionDetails  METHOD TYPE : POST
+INPUT:
+transactionId:5453
+
+OUTPUT:
+response:{"transactionData":{"customerId":"676","transactionId":5453,"service":"Programmer","date":"2015-11-20T18:30:00.000Z","time":"00:00:00","status":"SHORT_LISTED","areaPinCode":"560045","address":"MG Road","area":"Bangalore","phoneNumber":"676","altPhoneNumber":"9600557698","city":"Bangalore","description":"undefined","readStatus":"1","invoiceAmount":null,"vendorsCancelled":null,"vendors":[{"vendorName":"Venkat Kanduri","vendorId":"sve01196","userRating":5,"wage":"76$ per hour","isFavourite":0,"maxRatings":5,"bookedByVendor":0,"estimate":null},{"vendorName":"Vinayaka R","vendorId":"sve01200","userRating":4,"wage":"76$ per hour","isFavourite":0,"maxRatings":5,"bookedByVendor":0,"estimate":null}]},"apiStatus":true}
+------------------------------------------------------------------------------
+ URL :/getTransactionDetails - API NAME :getTransactionDetails  METHOD TYPE : POST
+INPUT:
+transactionId:5452
+
+OUTPUT:
+response:{"transactionData":{"customerId":"676","transactionId":5452,"service":"Programmer","date":"1992-01-20T18:30:00.000Z","time":"00:00:00","status":"SHORT_LISTED","areaPinCode":"5600234","address":"jdas","area":"Delhi","phoneNumber":"676","altPhoneNumber":"9908674576","city":"Bangalore","description":"undefined","readStatus":"1","invoiceAmount":null,"vendorsCancelled":null,"vendors":[{"vendorName":"Venkat K","vendorId":"sve01197","userRating":1,"wage":"76$ per hour","isFavourite":0,"maxRatings":5,"bookedByVendor":0,"estimate":null}]},"apiStatus":true}
+------------------------------------------------------------------------------
+ URL :/getTransactionDetails - API NAME :getTransactionDetails  METHOD TYPE : POST
+INPUT:
+transactionId:5444
+
+OUTPUT:
+response:{"transactionData":{"customerId":"676","transactionId":5444,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"BOOKED","areaPinCode":"560078","address":"NO 104","area":"Jayanagar","phoneNumber":"123132","altPhoneNumber":"34534532","city":"Bangalore","description":null,"readStatus":"1","invoiceAmount":null,"vendorsCancelled":"[{\"vendorId\":\"sve01163\",\"estimatedCost\":null,\"bookedByVendor\":0,\"docImage\":null,\"readByVendor\":0},{\"vendorId\":\"sve01164\",\"estimatedCost\":null,\"bookedByVendor\":0,\"docImage\":null,\"readByVendor\":0},{\"vendorId\":\"sve01165\",\"estimatedCost\":null,\"bookedByVendor\":0,\"docImage\":null,\"readByVendor\":0},{\"vendorId\":\"sve01166\",\"estimatedCost\":null,\"bookedByVendor\":0,\"docImage\":null,\"readByVendor\":0},{\"vendorId\":\"sve01169\",\"estimatedCost\":null,\"bookedByVendor\":1,\"docImage\":null,\"readByVendor\":0}]","vendorName":"Jeniffer Aniston","vendorId":"sve01167","userRating":2,"wage":"106$ per hour","isFavourite":1,"maxRatings":5,"estimate":"20$","timeElapsed":0},"apiStatus":true}
+------------------------------------------------------------------------------
+ URL :/getServiceTypeList - API NAME :getServiceTypeList  METHOD TYPE : GET
+INPUT:
+NO INPUT FOR THIS MODULE
+OUTPUT:
+response:["Technical Writer","Programmer","Soft Skills Trainer","Actor"]
+------------------------------------------------------------------------------
+ URL :/login - API NAME :validateUserWithoutview  METHOD TYPE : POST
+INPUT:
+userName:676
+password:p
+OUTPUT:
+response:true
+------------------------------------------------------------------------------
+ URL :/getServiceTypeList - API NAME :getServiceTypeList  METHOD TYPE : GET
+INPUT:
+NO INPUT FOR THIS MODULE
+OUTPUT:
+response:["Technical Writer","Programmer","Soft Skills Trainer","Actor"]
+------------------------------------------------------------------------------
+ URL :/getInboxData - API NAME :getInboxData  METHOD TYPE : POST
+INPUT:
+pageSize:10
+pageNumber:1
+request.session.userName:676
+OUTPUT:
+response:{"inboxData":[{"transactionId":5451,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:05:30","status":"BOOKED"},{"transactionId":5450,"service":"Actor","date":"1992-01-21T18:30:00.000Z","time":"12:04:09","status":"BOOKED"},{"transactionId":5449,"service":"Actor","date":"1992-01-21T18:30:00.000Z","time":"12:05:30","status":"TXN_COMPLETED"},{"transactionId":5448,"service":"Actor","date":"1992-01-22T18:30:00.000Z","time":"11:04:00","status":"BOOKED"},{"transactionId":5447,"service":"Programmer","date":"1992-01-21T18:30:00.000Z","time":"12:04:09","status":"CANCEL"},{"transactionId":5446,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"DISPUTE"},{"transactionId":5445,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"TXN_COMPLETED"},{"transactionId":5444,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:04:09","status":"BOOKED"},{"transactionId":5443,"service":"Soft Skills Trainer","date":"2015-03-11T18:30:00.000Z","time":"12:05:30","status":"WORK_COMPLETED"},{"transactionId":5431,"service":"Actor","date":"1992-01-21T18:30:00.000Z","time":"12:04:09","status":"SHORT_LISTED"}],"apiStatus":true}
+------------------------------------------------------------------------------
+ URL :/getTransactionDetails - API NAME :getTransactionDetails  METHOD TYPE : POST
+INPUT:
+transactionId:5451
+
+OUTPUT:
+response:{"transactionData":{"customerId":"676","transactionId":5451,"service":"Actor","date":"2015-03-11T18:30:00.000Z","time":"12:05:30","status":"BOOKED","areaPinCode":"560079","address":"No 101 Mr.Hegde","area":"Jayanagar","phoneNumber":"8123790964","altPhoneNumber":"9986132244","city":"Bangalore","description":"I just want the work to be completed in time!!","readStatus":"1","invoiceAmount":null,"vendorsCancelled":"[{\"vendorId\":\"sve01164\",\"estimatedCost\":null,\"bookedByVendor\":0,\"docImage\":null,\"readByVendor\":0},{\"vendorId\":\"sve01166\",\"estimatedCost\":null,\"bookedByVendor\":\"1\",\"docImage\":null,\"readByVendor\":0}]","vendorName":"Matilda Ruso","vendorId":"sve01163","userRating":3,"wage":"56$ per hour","isFavourite":1,"maxRatings":5,"estimate":null,"timeElapsed":0},"apiStatus":true}
+------------------------------------------------------------------------------
+ URL :/getTransactionDetails - API NAME :getTransactionDetails  METHOD TYPE : POST
+INPUT:
+transactionId:5431
+
+OUTPUT:
+response:{"transactionData":{"customerId":"676","transactionId":5431,"service":"Actor","date":"1992-01-21T18:30:00.000Z","time":"12:04:09","status":"SHORT_LISTED","areaPinCode":"560078","address":"NO 103 Pyramid Rc Pearl","area":"Jayanagar","phoneNumber":"34343","altPhoneNumber":"43534534","city":"Bangalore","description":"I want work to be so and so","readStatus":"1","invoiceAmount":null,"vendorsCancelled":null,"vendors":[{"vendorName":"Matilda Ruso","vendorId":"sve01163","userRating":3,"wage":"56$ per hour","isFavourite":1,"maxRatings":5,"bookedByVendor":0,"estimate":null},{"vendorName":"Venkat Kanduri","vendorId":"sve01164","userRating":4,"wage":"76$ per hour","isFavourite":1,"maxRatings":5,"bookedByVendor":0,"estimate":null},{"vendorName":"Anusha Kanduri","vendorId":"sve01165","userRating":3,"wage":"66$ per hour","isFavourite":1,"maxRatings":5,"bookedByVendor":0,"estimate":null},{"vendorName":"Sanjay Dutt","vendorId":"sve01166","userRating":2,"wage":"106$ per hour","isFavourite":1,"maxRatings":5,"bookedByVendor":1,"estimate":null},{"vendorName":"Jeniffer Aniston","vendorId":"sve01167","userRating":2,"wage":"106$ per hour","isFavourite":1,"maxRatings":5,"bookedByVendor":1,"estimate":"20$"},{"vendorName":"Sundar Ram","vendorId":"sve01168","userRating":3,"wage":"56$ per hour","isFavourite":1,"maxRatings":5,"bookedByVendor":1,"estimate":"50$"}]},"apiStatus":true}
+------------------------------------------------------------------------------

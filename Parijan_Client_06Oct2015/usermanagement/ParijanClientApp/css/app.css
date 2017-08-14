@@ -1,0 +1,84 @@
+/* app css stylesheet */
+
+/* Page Header */
+.page-header, .page-header-bar {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.page-header-bar {
+  padding-left: 9px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: white;
+  background-color: #B13332;
+}
+.page-body {
+  background-color: #FFEEED; /*#D63E3D;*/
+  height: 100%;
+  /*background: url('img/parijanBkground.jpg') no-repeat center center fixed;*/
+}
+
+.bgimage {
+  height:100vh;
+  width:100%;
+  background: url('../img/parijanBkground.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn-primary-parijan {
+  color: #fff;
+  background-color: #D63E3D;
+  border-color: #B13332;
+}
+.row-parijan {
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 0px;
+}
+
+/*****/
+
+.parijan-fullscreen
+{
+  height:100vh;
+  overflow:auto;
+}
+
+.Content
+{
+  height:65vh;
+  overflow:auto;
+}
+
+.ContentInbox
+{
+  height:85vh;
+  overflow:auto;
+}
+
+/* transaction-detail.html
+   cancel-dispute.html */
+.ContentShortListedVendor
+{
+  height:60vh;
+  overflow:auto;
+}
+/*****/
+
+/* for grid test */
+.grid {
+  width: 100%;
+  height: 400px;
+}
+.grid-align {
+  text-align: center;
+  vertical-align: middle;
+}
+.grid-icon {
+  padding-top: 30px; 
+}

@@ -1,0 +1,640 @@
+/*This includes the css code for the login page-adminhome.html*/
+
+/*The @import CSS at-rule allows to import style rules
+ from other style sheets
+uses (http://meyerweb.com/eric/tools/css/reset/reset.css) 
+as style sheet*/
+@import url(http://meyerweb.com/eric/tools/css/reset/reset.css);
+
+
+/*Setting up Font Awesome can be as simple as adding 
+two lines of code to the website. 
+here it is used to use font family varela
+this helps to include the font without downloading it
+*/
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/*here the styling for body tag starts
+min width is used to prevent hte messing up of all the 
+contents when browser is minimized. font size is 16px
+*/
+                            body {
+                                  min-width: 1300px;
+	                          background-color: #D4D4D4;
+	                          color: #000;
+	                          font-family: "Varela Round", Arial, Helvetica, sans-serif;
+	                          font-size: 16px;
+	                          line-height: 1.5em;
+                                  }
+
+
+
+
+/*css styling for input tag 
+which is used to take the values of email
+and password by user
+*/
+                          input {
+	                         border: none;
+	                         font-family: inherit;
+	                         font-size: inherit;
+	                         font-weight: inherit;
+	                         line-height: inherit;
+	                       /**  -webkit-appearance: none;**/
+                                 }
+
+
+
+
+/* login is the id given for div tag which divides
+the page accordingly*/
+
+                        #login {
+                            
+	                       margin: 60px auto;
+	                       width: 400px;
+                               margin-left:510px;
+                               margin-top:26px;
+                               }
+
+
+
+/*this is code to style the h2 tag of div tag whose
+id is login. this styles the word "sign in" as header
+*/
+
+                     #login h2 {
+                               
+	                       background-color:#FA7575;
+         	               -webkit-border-radius: 20px 20px 0 0;
+	                       -moz-border-radius: 20px 20px 0 0;
+	                        border-radius: 20px 20px 0 0;
+	                        color: #fff;
+	                        font-size: 28px;
+	                        padding: 10px 20px;
+                            
+                                }
+
+
+
+
+/*span is used to divide the header and content of 
+the login area using the font fontawesome
+*/
+         
+                       #login h2 
+    span[class*="fontawesome-"] { 
+	                         margin-right: 14px;
+                       
+                                }
+
+
+
+/*The <fieldset> tag is used to group related elements in a form.
+*/
+
+
+                  #login fieldset {
+	                           background-color: #fff;
+	                          -webkit-border-radius: 0 0 20px 20px;
+	                          -moz-border-radius: 0 0 20px 20px;
+	                           border-radius: 0 0 20px 20px;
+	                           padding: 20px 26px;
+                                   }
+
+/*styling the elements of the fieldset tag 
+here the p tag which is included in the field set tag 
+is styled
+*/
+     
+
+                #login fieldset p {
+	                          color: #777;
+	                          margin-bottom: 14px;
+                                  }
+/*styling for the p element that is the last child of its parent:
+i.e is sigin button here*/
+
+     #login fieldset p:last-child {
+	                           margin-bottom: 0;
+                                   } 
+
+
+/*styling the elements of the fieldset tag 
+here the input tag which is included in the field set tag 
+is styled
+*/
+       	
+            #login fieldset input {
+	                        -webkit-border-radius: 3px;
+	                        -moz-bordefffr-radius: 3px;
+	                         border-radius: 3px;
+                                 }
+
+
+                 
+                                      
+
+
+/*css for account management*/
+
+
+#login2 {
+	margin: 60px auto;
+	width: 400px;
+        
+        margin-left:40px;
+        margin-top:-1100px;
+}
+
+#login2 h2 {
+	background-color: #FA7575;
+	-webkit-border-radius: 20px 20px 0 0;
+	-moz-border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0 0;
+	color: #fff;
+	font-size: 28px;
+	padding: 20px 26px;
+}
+
+#login2 h2 span[class*="fontawesome-"] {
+	margin-right: 14px;
+}
+
+
+#login2 fieldset {
+	background-color: #fff;
+	-webkit-border-radius: 0 0 0px 0px;
+	-moz-border-radius: 0 0 0px 0px;
+	border-radius: 0 0 0px 0px;
+	padding: 20px 26px;
+}
+
+#login2 fieldset p {
+	color: #777;
+	margin-bottom: 14px;
+}
+
+#login2 fieldset p:last-child {
+	margin-bottom: 0;
+}
+
+#login2 fieldset input {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+ h1 {
+text-align: center;
+
+
+
+}
+
+
+#text
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:18px;
+  
+    left:2px;
+    top:100px;
+  
+}
+
+#text1
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:18px;
+  
+    left:210px;
+    top:150px;
+  
+}
+#text2
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:18px;
+ 
+    left:210px;
+    top:190px;
+  
+}
+
+/*css for logged in users*/
+#login3 {
+	margin: 60px auto;
+	width: 400px;
+        
+        margin-left:290px;
+        margin-top:-60px;
+}
+
+#login3 h2 {
+	background-color: #FA7575;
+	-webkit-border-radius: 20px 20px 0 0;
+	-moz-border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0 0;
+	color: #fff;
+	font-size: 28px;
+	padding: 20px 26px;
+}
+
+#login3 h2 span[class*="fontawesome-"] {
+	margin-right: 14px;
+}
+
+
+#login3 fieldset {
+	background-color: #fff;
+	-webkit-border-radius: 0 0 0px 0px;
+	-moz-border-radius: 0 0 0px 0px;
+	border-radius: 0 0 0px 0px;
+	padding: 20px 26px;
+}
+
+#login3 fieldset p {
+	color: #777;
+	margin-bottom: 14px;
+}
+
+#login3 fieldset p:last-child {
+	margin-bottom: 0;
+}
+
+#login3 fieldset input {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+/*#login3 fieldset input[type="email"], #login2 fieldset input[type="password"] {
+	background-color: #eee;
+	color:#666666;
+	padding: 4px 10px;
+	width: 328px;
+}*/
+
+#login3 fieldset input[type="submit"] {
+	background-color:#FA7575;
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+	padding: 4px 0;
+	width: 100px;
+}
+
+#login fieldset input[type="submit"]:hover {
+	background-color: #FA7575;
+}
+ h1 {
+text-align: center;
+
+
+
+}
+
+
+
+#text4
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:18px;
+  
+    left:310px;
+    top:325px;
+  
+}
+/* css for list*/
+
+#login4 {
+	margin: 60px auto;
+	width: 300px;
+        
+        margin-left:290px;
+        margin-top:-60px;
+}
+
+#login4 h2 {
+	background-color: #FA7575;
+	-webkit-border-radius: 20px 20px 0 0;
+	-moz-border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0 0;
+	color: #fff;
+	font-size: 28px;
+	padding: 20px 26px;
+}
+
+#login4 h2 span[class*="fontawesome-"] {
+	margin-right: 14px;
+}
+
+
+#login4 fieldset {
+	background-color: #fff;
+	-webkit-border-radius: 0 0 0px 0px;
+	-moz-border-radius: 0 0 0px 0px;
+	border-radius: 0 0 0px 0px;
+	padding: 20px 26px;
+}
+
+#login4 fieldset p {
+	color: #777;
+	margin-bottom: 14px;
+}
+
+#login4 fieldset p:last-child {
+	margin-bottom: 0;
+}
+
+#login4 fieldset input {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+/*#login4 fieldset input[type="email"], #login2 fieldset input[type="password"] {
+	background-color: #eee;
+	color:#666666;
+	padding: 4px 10px;
+	width: 328px;
+}*/
+
+#login4 fieldset input[type="submit"] {
+	background-color:#FA7575;
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+	padding: 4px 0;
+	width: 100px;
+}
+
+#login fieldset input[type="submit"]:hover {
+	background-color: #FA7575;
+}
+ h1 {
+text-align: center;
+
+
+
+}
+
+
+
+#text5
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:18px;
+  
+    left:490px;
+    top:500px;
+  
+}
+
+
+#text6
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:18px;
+  
+    left:460px;
+    top:530px;
+  
+}
+
+
+/*recent activity css*/
+
+#login5 {
+	margin: 60px auto;
+	width: 365px;
+        margin-left:550px;
+        margin-top:50px;
+}
+
+#login5 h2 {
+	background-color:#FA7575;
+	-webkit-border-radius: 20px 20px 0 0;
+	-moz-border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0 0;
+	color: #fff;
+	font-size: 28px;
+	padding: 10px 20px;
+}
+
+#login5 h2 span[class*="fontawesome-"] {
+	margin-right: 14px;
+}
+
+
+#login5 fieldset {
+	background-color: #fff;
+	-webkit-border-radius: 0 0 20px 20px;
+	-moz-border-radius: 0 0 20px 20px;
+	border-radius: 0 0 20px 20px;
+	padding: 20px 26px;
+}
+
+#login5 fieldset p {
+	color: #777;
+	margin-bottom: 14px;
+}
+
+#login5 fieldset p:last-child {
+	margin-bottom: 0;
+}
+
+#login5 fieldset input {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+/*#login5 fieldset input[type="email"], #login fieldset input[type="password"] {
+	background-color: #eee;
+	color:#666666;
+	padding: 4px 10px;
+	width: 328px;
+}*/
+
+#login5 fieldset input[type="submit"] {
+	background-color:gray;
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+	padding: 4px 0;
+	width: 100px;
+}
+
+#login5 fieldset input[type="submit"]:hover {
+	background-color: #FA7575;
+}
+ h1 {
+text-align: center;
+}
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Patua+One|Open+Sans);
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+table {
+  
+     border: 1px solid #F8DEE0; 
+  background: #fff;
+  -moz-border-radius: 5px black;
+  -webkit-border-radius: 5px;
+  border-radius: 5px black;
+  margin:6px 2px;
+ 
+}
+/
+thead {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+thead th {
+border: 1px solid white;
+
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+
+  text-align: left;
+  padding: 20px;
+  background-image: -moz-linear-gradient(white,#F8DEE0);
+  background-image: -webkit-linear-gradient(white,#F8DEE0);
+  background-image: linear-gradient(white,#F8DEE0);
+  border-top: 1px solid #F8DEE0;
+}
+thead th:first-child {
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+thead th:last-child {
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+tbody tr td {
+
+     border: 1px solid #F8DEE0; 
+  font-weight: 400;
+  color: #5f6062;
+  font-size: 13px;
+  padding: 7px 7px 7px 7px;
+  border-bottom: 1px solid #F8DEE0;
+}
+
+tbody tr:nth-child(2n) {
+  background: #f0f3f5;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+tbody tr:last-child td:first-child {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+tbody tr:last-child td:last-child {
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*tbody:hover > tr td {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  /* uncomment for blur effect */
+  /* color:transparent;
+  @include text-shadow(0px 0px 2px rgba(0,0,0,0.8));
+}
+
+tbody:hover > tr:hover td {
+  text-shadow: none;
+  color: #2d2d2d;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}*/
+.header{
+min-height: 60px;
+height: 100%;
+padding: 0 10px;
+background: #FFFFFF;
+}
+
+.header > h1 {
+float: left;
+padding: 30px 0 0;	
+font-style:normal;
+font-family:san serif;
+font-size: 28px;
+color:black;
+}
+
+#captcha
+{
+height:38px;
+background-image:url(overlay.png);
+background-size:100px;
+background-repeat:no-repeat;
+font-size:25px;
+position:relative;
+}
+#captcha_gen
+{
+left:10px;
+top:3px;
+position:absolute;
+Font-family:Monospace;
+font-weight:bold;
+text-align:justify;
+}
+
+#captcha2
+{
+height:38px;
+background-image:url(overlay.png);
+background-size:100px;
+background-repeat:no-repeat;
+font-size:25px;
+position:relative;
+}
+#captcha_gen2
+{
+left:10px;
+top:3px;
+position:absolute;
+Font-family:Monospace;
+font-weight:bold;
+text-align:justify;
+}

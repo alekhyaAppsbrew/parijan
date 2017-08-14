@@ -1,0 +1,93 @@
+<div class="container">
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar">
+    <h4>Contact Details</h4>
+  </div>
+  <!--<span class="pull-right glyphicon glyphicon-envelope" ng-click="gotoInbox()"> </span>-->
+
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="bookServiceForm" ng-submit="submitForm()" novalidate>
+
+      <!-- SERVICE TYPE -->
+      <div class="form-group" ng-class="{ 'has-error' : bookServiceForm.serviceType.$invalid  && (bookServiceForm.serviceType.$dirty || submitted)}">
+        <input type="text" name="serviceType" class="form-control input-lg"
+               ng-model="serviceRequestData.service"
+               ng-required="true" ng-readonly="true">
+        <p ng-show="bookServiceForm.serviceType.$error.required  && (bookServiceForm.serviceType.$dirty || submitted)" class="help-block">Service Type is required</p>
+      </div>
+
+      <!-- DATE -->
+      <!--div class="form-group" ng-class="{ 'has-error' : bookServiceForm.date.$invalid  && (bookServiceForm.date.$dirty || submitted)}">
+        <input type="date" name="date" class="form-control input-lg"
+               ng-model="serviceRequestData.date"
+               ng-required="true" ng-readonly="true">
+        <p ng-show="bookServiceForm.date.$error.required  && (bookServiceForm.date.$dirty || submitted)" class="help-block">Date is required</p>
+      </div-->
+
+      <!-- TIME -->
+      <!--div class="form-group" ng-class="{ 'has-error' : bookServiceForm.time.$invalid  && (bookServiceForm.time.$dirty || submitted)}">
+        <input type="time" name="time" class="form-control input-lg"
+               ng-model="serviceRequestData.time"
+               ng-required="true" ng-readonly="true">
+        <p ng-show="bookServiceForm.time.$error.required  && (bookServiceForm.time.$dirty || submitted)" class="help-block">Time is required</p>
+      </div-->
+      
+      <!-- MOBILE/PHONE NUMBER -->
+      <div class="form-group" ng-class="{ 'has-error' : bookServiceForm.phoneNumber.$invalid  && (bookServiceForm.phoneNumber.$dirty || submitted)}">
+        <input type="number" name="phoneNumber" class="form-control input-lg"
+               ng-model="serviceRequestData.phoneNumber"
+               ng-required="true"
+               placeholder="Mobile Number">
+        <p ng-show="bookServiceForm.phoneNumber.$error.required  && (bookServiceForm.phoneNumber.$dirty || submitted)" class="help-block">Mobile Number is required</p>
+      </div>
+      
+      <!-- ALTERNATE MOBILE/PHONE NUMBER -->
+      <div class="form-group">
+        <input type="number" name="altPhoneNumber" class="form-control input-lg"
+               ng-model="serviceRequestData.altPhoneNumber"
+               ng-required="true"
+               placeholder="Alternate Mobile Number">
+        <!--p ng-show="bookServiceForm.altPhoneNumber.$error.required  && (bookServiceForm.altPhoneNumber.$dirty || submitted)" class="help-block">Mobile Number is required</p-->
+      </div>
+      
+      <!-- ADDRESS_1 -->
+      <div class="form-group" ng-class="{ 'has-error' : bookServiceForm.address1.$invalid  && (bookServiceForm.address1.$dirty || submitted)}">
+        <input type="text" name="address1" class="form-control input-lg"
+               ng-model="serviceRequestData.address1"
+               ng-required="true"
+               placeholder="Address Line-1">
+        <p ng-show="bookServiceForm.address1.$error.required  && (bookServiceForm.address1.$dirty || submitted)" class="help-block">Address Line-1 is required</p>
+      </div>
+      
+      <!-- CITY -->
+      <div class="form-group" ng-class="{ 'has-error' : bookServiceForm.city.$invalid  && (bookServiceForm.city.$dirty || submitted)}">
+        <input type="text" name="city" class="form-control input-lg"
+               ng-model="serviceRequestData.city"
+               ng-required="true"
+               placeholder="City">
+        <p ng-show="bookServiceForm.city.$error.required  && (bookServiceForm.city.$dirty || submitted)" class="help-block">Address Line-2 is required</p>
+      </div>
+
+      <!-- Date & TIME -->
+      <label>Date & Time: {{serviceRequestData.date}} - {{serviceRequestData.time}}</label> <br>
+      <!-- AREA -->
+      <label>Area: {{serviceRequestData.area}}</label> <br>
+      <!-- AREA PIN CODE -->
+      <label>Area PIN Code: {{serviceRequestData.areaPinCode}}</label> <br>
+      <!--div class="form-group" ng-class="{ 'has-error' : bookServiceForm.pinCode.$invalid  && (bookServiceForm.pinCode.$dirty || submitted)}">
+        <input type="number" name="pinCode" class="form-control input-lg"
+               ng-model="serviceRequestData.areaPinCode"
+               ng-required="true" ng-readonly="true">
+        <p ng-show="bookServiceForm.pinCode.$error.required  && (bookServiceForm.pinCode.$dirty || submitted)" class="help-block">Area PinCode is required</p>
+      </div-->
+      
+      
+      <!-- ng-disabled FOR ENABLING AND DISABLING SUBMIT BUTTON -->
+      <!--<button type="submit" class="btn btn-primary" ng-disabled="bookServiceForm.$invalid">Register</button>-->
+      <button href="#/vendors" type="submit" class="btn btn-primary-parijan">Submit</button>
+      <!-- Menu Toggle Button -->
+    </form>
+  </div>
+</div>

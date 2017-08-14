@@ -1,0 +1,83 @@
+<div class="container">
+  <!--
+Phone - user name
+First name
+Last name
+[Terms n' conditions - from Ravi]
+[] Accept T&C - check box
+[Submit] button
+
+After 'submit' show 'OTP screen'  ---- > "Plz enter OTP[     ]"  [OK] button
+
+Auto Login
+
+-->
+  <!-- PAGE HEADER -->
+  <div class="row-parijan  page-header-bar"><h4>Create Your Parijan Account</h4></div>
+
+  <!-- ngSTORAGE EXAMPLE -->
+  <!--button ng-click="$storage.counter = $storage.counter + 1">{{$storage.counter}}</button -->
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+
+
+      <!-- PHONE NUMER -->
+      <div class="form-group" ng-class="{ 'has-error' : userForm.phoneNo.$invalid  && (userForm.phoneNo.$dirty || submitted)}">
+        <!--label>Phone Number/User Name</label-->
+        <select name="phoneNo" class="form-control input-lg"
+                ng-model="user.phoneNo"
+                ng-options="phoneNo.number for phoneNo in phoneNoList"
+                ng-required="true">
+          <option value=''>Select Phone Number</option>
+        </select>
+        <p ng-show="userForm.phoneNo.$error.required  && (userForm.phoneNo.$dirty || submitted)" class="help-block">Select Phone Number</p>
+      </div>
+
+      <!-- FIRST NAME -->
+      <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && (userForm.firstname.$dirty || submitted)}">
+        <!--label>Name</label-->
+        <input type="text" name="firstname" class="form-control input-lg" ng-model="user.firstname" placeholder="Firstname" ng-required="true">
+        <p ng-show="userForm.firstname.$error.required && (userForm.firstname.$dirty || submitted)" class="help-block">Your firstname is required.</p>
+      </div>
+
+      <!-- LAST NAME -->
+      <div class="form-group" ng-class="{ 'has-error' : userForm.lastname.$invalid && (userForm.lastname.$dirty || submitted)}">
+        <!--label>Last Name</label-->
+        <input type="text" name="lastname" class="form-control input-lg" ng-model="user.lastname" placeholder="Lastname" ng-required="true">
+        <p ng-show="userForm.lastname.$error.required && (userForm.lastname.$dirty || submitted)" class="help-block">Your lastname is required.</p>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+        <!--label>Password</label-->
+        <input type="Password" name="password" class="form-control input-lg" ng-model="user.password" placeholder="Your Password" ng-required="true">
+        <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && (userForm.confirmPassword.$dirty || submitted)}">
+        <!--label>Confirm Password</label-->
+        <input type="Password" name="confirmPassword" class="form-control input-lg" ng-model="user.confirmPassword" placeholder="Confirm Your Password" ng-compare="password" ng-required="true">
+        <p ng-show="userForm.confirmPassword.$error.required && (userForm.confirmPassword.$dirty || submitted)" class="help-block">Your confirm password is required.</p>
+        <p ng-show="userForm.confirmPassword.$error.compare  && (userForm.confirmPassword.$dirty || submitted)" class="help-block">Confirm password does not match.</p>
+      </div>
+
+      <!-- TERMS & CONDITIONS -->
+      <div class="form-group" ng-class="{ 'has-error' : userForm.terms.$invalid && (userForm.terms.$dirty || submitted)}">
+        <label>Accept Terms & Conditions</label>
+        <input type="checkbox" value="" name="terms" ng-model="user.terms" ng-required="true" />
+        <p ng-show="userForm.terms.$error.required && (userForm.terms.$dirty || submitted)" class="help-block">Accept terms & conditions.</p>
+      </div>
+
+      <!-- ng-disabled FOR ENABLING AND DISABLING SUBMIT BUTTON -->
+      <!--<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Register</button>-->
+      <button href="#/validateotp" type="submit" class="btn btn-primary-parijan">Register</button>
+    </form>
+  </div>
+  <!--div class="pull-right">
+      <span ng-click="gotoSearchVendorPage()" class="btn-link">Skip Registration</span>
+  </div-->
+  
+</div>

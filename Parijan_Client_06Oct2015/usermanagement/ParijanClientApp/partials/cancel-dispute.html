@@ -1,0 +1,26 @@
+<div class="container page-body">
+
+  <!--CANCEL / DISPUTE PAGE-->
+
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar"><h4>{{transaction.choice | uppercase}} - {{transaction.service | uppercase}}</h4></div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <form name="transactionForm" ng-submit="submitForm()" novalidate>
+
+      <!-- USER NAME -->
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : transactionForm.reason.$invalid && (transactionForm.reason.$dirty || submitted)}">
+          <textarea name="reason" class="form-control input-lg ContentShortListedVendor" ng-model="transaction.reason" placeholder="Reason for {{transaction.choice}}" ng-required="true"> </textarea>
+          <p ng-show="transactionForm.reason.$error.required && (transactionForm.reason.$dirty || submitted)" class="help-block">Reason for {{transaction.choice}} is required.</p>
+        </div>
+      </div>
+
+      <!-- SIGN IN & REGISTER -->
+      <div class="row">
+        <button class="btn btn-primary-parijan col-sm-3" href="#/register" type="submit">{{transaction.choice | uppercase}}</button>
+      </div>
+      
+    </form>
+  </div>
+</div>

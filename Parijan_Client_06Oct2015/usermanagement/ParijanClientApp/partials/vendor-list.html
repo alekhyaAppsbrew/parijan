@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar"><h4>Vendor List</h4></div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="vendorListForm" ng-submit="submitForm()" novalidate>
+
+      <div class="col-sm-2 form-group">
+        <!--Sidebar content-->
+        Search: <input class="input-lg" ng-model="query"> <br>
+      </div>
+
+      <div class="Content">
+        <table st-table="rowCollection" class="table">
+          <tbody>
+            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in names | filter:query">
+              <td>
+                <label class="checkbox-inline grid-icon">
+                  <input id="{{row.vendorid}}" type="checkbox" value="{{row.vendorid}}" ng-checked="selection.indexOf(row.vendorid) > -1" ng-click="toggleSelection(row.vendorid)">
+                </label>
+              </td>
+              <td>
+                <img ng-src="{{row.thumbnailimage}}" style="width:70px;height:80px">
+              </td>
+              <td>
+                <div>
+                  <!-- NAME & FAVOURITE UI -->
+                  <h4>{{row.firstname}} {{row.lastname}}</h4> <rating ng-model="row.favlist" max="1" readonly="true" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" ng-show="row.favlist"></rating>
+                  <br>
+                  <!-- RATINGS UI -->
+                  <rating ng-model="row.userRating" max="row.max_rating" readonly="true" state-on="'glyphicon-star'" state-off="'glyphicon-star-empty'"></rating>
+                </div>
+              </td>
+
+              <td>
+                <div class="pull-right" ng-click="getVendorInfo( row.vendorid )">
+                  <span class="glyphicon glyphicon-chevron-right grid-icon"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button type="submit" class="btn btn-primary-parijan" ng-disabled="!selection.length">Submit</button>
+    </form>
+  </div>
+  
+</div>

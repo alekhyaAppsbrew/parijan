@@ -1,0 +1,278 @@
+<!--adminhome.html contains html code for account page for admin-->
+<!--this page contains the 5 division-->
+<!--first division is for the isplaying contents of profile-->
+<!--sec contains 3division which links to account management,logged in users
+and list of recent users-->
+
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Account</title>
+<!--style sheet link for the font-->
+<link rel="stylesheet" 
+href="http://fonts.googleapis.com/css?family=Varela+Round">
+<!--style sheet link for the account page css-->
+<link rel="stylesheet" href="/views/adminhome2.css">
+<link rel="stylesheet" href="/views/adminhome.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js" type="text/javascript"></script>
+
+
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="adminhome2.js" type="text/javascript">
+
+</script>
+
+
+    <script type="text/javascript">
+        $.get('/displayVendorsList', function(response)
+        {
+          var obj = jQuery.parseJSON(response);
+          var flag=0;
+          $.each(obj.entireVendors, function(i,itemEntireVendors)
+          {
+            $.each(obj.favouriteVendors, function(i,itemFavouriteVendors)
+            {
+               if(itemEntireVendors.vendorid==itemFavouriteVendors.vendorid)
+                  {
+                 
+                     $('<tr>').html(
+            "<td>" + itemEntireVendors.vendorid+ "</td>" + "<td><input type='checkbox' id='star5' name='rating' value="+itemEntireVendors.vendorid+" checked content='\2605' /><label for='star5' title='Rocks!'></label></td> ").appendTo('#records_table');
+                     flag=1;
+                     return true;
+                   }
+            });
+            if(flag==1){flag=0;}
+            else{
+                  $('<tr>').html(
+            "<td>" + itemEntireVendors.vendorid+ "</td>" + "<td><input type='checkbox' id='star5' name='rating' value="+itemEntireVendors.vendorid+" content='\2605' /><label for='star5' title='Rocks!'></label></td> ").appendTo('#records_table');
+                }
+            
+            
+          });   
+        });
+    </script>
+</head>
+
+<style>
+    .rating {
+      float:left;
+    }
+
+    /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+        follow these rules. Every browser that supports :checked also supports :not(), so
+        it doesn’t make the test unnecessarily selective */
+        .rating:not(:checked) > input {
+          position:absolute;
+          top:-9999px;
+          clip:rect(0,0,0,0);
+        }
+
+.rating:not(:checked) > label {
+    float:right;
+    width:7em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:150%;
+    line-height:1.2;
+    color:#DA9A9A;
+    text-shadow:1px 1px #FFF6F6, 2px 2px #FFF7F7, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '\2605';
+}
+
+.rating > input:checked ~ label {
+    color: #00cccc;
+    text-shadow:1px 1px #c60, 2px 2px #408BB6, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #6666ff;
+    text-shadow:1px 1px #408BB6, 2px 2px #408BB6, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #6666ff;
+    text-shadow:1px 1px #408BB6, 2px 2px #408BB6, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+  </style>
+
+
+<!--the body of the page starts here-->
+<body>
+
+<!--this is the first division which is used to place the main heading
+and links to home and logout pages-->
+<!--this follows the css class header-->
+
+
+<div class="header clearfix" style="background-color: #FA7575;
+min-width: 1110px; overflow:hidden;" >
+<p style="margin-left:10px; margin-top:30px; font-family: 'Varela Round',
+ Arial, Helvetica, sans-serif; font-size:25px;">
+<font color="white">User Management</font>
+</p>
+
+<!--this is the div for home and logout links which follows the css 
+class of nav and menu-->
+<div class="clearfix">
+<div class="nav">
+<ul class="menu">
+<li><a href="/adminhome"><font size="4" color="white" >Home</font></a></li>
+<li><a href="/logout"><font size="4" color="white">Logout</font></a></li>	
+</ul>
+</div><!-- End of Navigation -->
+
+</div><!-- End of Header -->
+</div><!-- End of Container -->
+</div>
+</div>
+
+<!--searchbox-->
+<form id="searchbox" action="">
+<div>
+<input  type="search"  id="search_query" placeholder="Search Users" style="margin-left:1080px; margin-top:30px; font-family: 'Varela Round',
+Arial, Helvetica, sans-serif; font-size:13px;">
+
+<input type="button" id="button_find" />
+</div>
+<!--<div>
+<input  type="search" id="q" placeholder="Search Users" style="margin-left:1080px; margin-top:30px; font-family: 'Varela Round',
+Arial, Helvetica, sans-serif; font-size:13px;">
+<input type="button" id="b" value="Search" />
+</div>-->
+
+<!--this the division of the main page called as my profile
+which contains the details
+of user. includes name,status,emailid, dob, location--> 
+<!--and link to edit the profile-->
+<div id="login" >
+<h2>
+
+<form action="javascript:void(0);">
+<fieldset>
+
+<h2 id="h2"><span class="fontawesome-lock" ></span>
+<font style="font-family: 'Varela Round', Arial, Helvetica, sans-serif; font-size:20px; "
+color="white">Vendors List</font></h2>
+<form action="javascript:void(0);">
+<fieldset>
+
+<table id="tab" ><thead id="thead"><tr><th width="200px" ><font style="font-family: 'Varela Round', Arial, Helvetica, 
+sans-serif; font-size:18px;" color="black">Vendor-ID</th><th width="100px"><font style="font-family: 'Varela Round', Arial, Helvetica, 
+sans-serif; font-size:18px;" color="black">Favourites</th></tr>
+
+
+
+
+</thead>
+<tbody  id="records_table" style="overflow:auto">
+
+ </tbody>
+ <tr></tr>
+</table>
+<button id="sub1">Add to Favorites</button>
+
+
+
+</form>
+<p><a href="#"><font size="2" color="blue"></font></a></p>
+<!-- JS because of IE support; better: placeholder="password" -->
+</fieldset>
+</form>
+</div> <!-- end class login -->
+
+<script>
+
+$("#sub1").click(function(e)
+{
+  e.preventDefault();
+
+  //Before passing the data the data must be serialised
+  var checked = []
+        $("input[name='rating']:checked").each(function ()
+        {
+            checked.push($(this).val());
+        });
+  
+  var dataString = 'checked='+checked;
+ 
+  $.ajax({
+    
+    async       : true,
+    type        : 'POST',
+    url         : 'http://localhost:3004/setFavList',
+    crossDomain : true,
+    data        : { vendorArray: checked},
+
+    // If the POST is success
+    success     :function(response){
+                  alert(response);
+                  if(response){
+                  alert("setFavList success");
+                  }
+                  
+                  else {
+                  alert("setFavList failed");
+                  }
+                 },
+
+   // If the POST is not working
+    error       :function(){
+
+                   alert("POST IS NOT WORKING");
+                   
+                 }
+            
+
+   });
+
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--end of the body-->
+</body>
+</html>
+
+
+
+
+
+
+

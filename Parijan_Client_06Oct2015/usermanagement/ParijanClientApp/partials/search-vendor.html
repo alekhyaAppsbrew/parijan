@@ -1,0 +1,82 @@
+<div class="container bgimage">
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar">
+    <h4>Search Vendors
+      <span class="glyphicon glyphicon-envelope" ng-click="gotoInbox()"> </span>
+      <span class="pull-right glyphicon glyphicon-log-out" ng-click="userLogout()"> </span>
+    </h4>
+  </div>
+  <!--<span class="pull-right glyphicon glyphicon-envelope" ng-click="gotoInbox()"> </span>-->
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <!--
+Vendor Type Selection List
+[Submit] button
+After 'submit' show 'OTP screen'  ---- > "Plz enter OTP[     ]"  [OK] button
+Auto Login
+-->
+
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="searchVendorForm" ng-submit="submitForm()" novalidate>
+
+      <!-- VENDOR TYPE -->
+      <div class="form-group" ng-class="{ 'has-error' : searchVendorForm.vendorType.$invalid  && (searchVendorForm.vendorType.$dirty || submitted)}">
+        <!--label>Service</label-->
+        <select name="vendorType" class="form-control input-lg"
+                ng-model="vendor.vendorType"
+                ng-options="vendorType as vendorType for vendorType in vendorTypeList"
+                ng-required="true">
+          <option value=''>Service Type</option>
+        </select>
+        <p ng-show="searchVendorForm.vendorType.$error.required  && (searchVendorForm.vendorType.$dirty || submitted)" class="help-block">Select service type</p>
+      </div>
+
+      
+      <!-- AREA -->
+      <div class="form-group" ng-class="{ 'has-error' : searchVendorForm.area.$invalid  && (searchVendorForm.area.$dirty || submitted)}">
+        <!--label>Area</label-->
+        <input type="text" name="area" class="form-control input-lg"
+               ng-model="vendor.area"
+               ng-required="true"
+               placeholder="Area">
+        <p ng-show="searchVendorForm.area.$error.required  && (searchVendorForm.area.$dirty || submitted)" class="help-block">Area PinCode is required</p>
+      </div>
+      
+      <!-- AREA PIN CODE -->
+      <div class="form-group" ng-class="{ 'has-error' : searchVendorForm.pinCode.$invalid  && (searchVendorForm.pinCode.$dirty || submitted)}">
+        <!--label>Area Pin Code</label-->
+        <input type="number" name="pinCode" class="form-control input-lg"
+               ng-model="vendor.pinCode"
+               ng-required="true"
+               placeholder="Area Pin Code">
+        <p ng-show="searchVendorForm.pinCode.$error.required  && (searchVendorForm.pinCode.$dirty || submitted)" class="help-block">Area PinCode is required</p>
+      </div>
+
+      <!-- DATE -->
+      <div class="form-group" ng-class="{ 'has-error' : searchVendorForm.date.$invalid  && (searchVendorForm.date.$dirty || submitted)}">
+        <!--label>Date</label-->
+        <!--input type="date" name="servicedate" id="servicedate"-->
+        <input type="date" name="date" class="form-control input-lg"
+               ng-model="vendor.date"
+               ng-required="true"
+               placeholder="Date">
+        <p ng-show="searchVendorForm.date.$error.required  && (searchVendorForm.date.$dirty || submitted)" class="help-block">Date is required</p>
+      </div>
+
+      <!-- TIME -->
+      <div class="form-group" ng-class="{ 'has-error' : searchVendorForm.time.$invalid  && (searchVendorForm.time.$dirty || submitted)}">
+        <!--label>Time</label-->
+        <input type="time" name="time" class="form-control input-lg"
+               ng-model="vendor.time"
+               ng-required="true"
+               placeholder="Time">
+        <p ng-show="searchVendorForm.time.$error.required  && (searchVendorForm.time.$dirty || submitted)" class="help-block">Select Vendor Type</p>
+      </div>
+
+      <!-- ng-disabled FOR ENABLING AND DISABLING SUBMIT BUTTON -->
+      <!--<button type="submit" class="btn btn-primary" ng-disabled="searchVendorForm.$invalid">Register</button>-->
+      <button href="#/vendors" type="submit" class="btn btn-primary-parijan">Submit</button>
+      <!-- Menu Toggle Button -->
+    </form>
+  </div>
+</div>

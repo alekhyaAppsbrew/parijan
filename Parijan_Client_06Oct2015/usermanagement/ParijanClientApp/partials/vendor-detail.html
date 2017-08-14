@@ -1,0 +1,28 @@
+<div class="container">
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar"><h4>{{vendor.firstname | uppercase}} {{vendor.lastname | uppercase}}</h4></div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="vendorDetailsForm" ng-submit="submitForm()" novalidate>
+
+      <!-- VENDOR TYPE -->
+      <div class="form-group" ng-class="{ 'has-error' : vendorDetailsForm.vendorType.$invalid  && (vendorDetailsForm.vendorType.$dirty || submitted)}">
+        <div class="pull-right">
+          <rating ng-model="vendor.favlist" max="1" readonly="true" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" ng-show="vendor.favlist"></rating>
+        </div>
+
+        <img ng-src="{{vendor.regularimage}}" class="phone">
+        <span>
+          <p> <!-- RATINGS UI -->
+            <rating ng-model="vendor.userRating" max="vendor.max_rating" readonly="true" state-on="'glyphicon-star'" state-off="'glyphicon-star-empty'"></rating> <br>
+            Role: {{vendor.skill}}<br>
+            Cost: {{vendor.cost}}<br> </p>
+        </span>
+
+        <p ng-show="vendorDetailsForm.vendorType.$error.required  && (vendorDetailsForm.vendorType.$dirty || submitted)" class="help-block">Select Vendor Type</p>
+      </div>
+    </form>
+  </div>
+</div>

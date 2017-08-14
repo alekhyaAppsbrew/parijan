@@ -1,0 +1,41 @@
+<div class="container page-body">
+
+  <!--LOGIN PAGE-->
+
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar"><h4>Login Page</h4></div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+
+      <!-- USER NAME -->
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && (userForm.firstname.$dirty || submitted)}">
+          <input type="number" name="firstname" class="form-control input-lg" ng-model="user.firstname" placeholder="Mobile Number" ng-required="true">
+          <p ng-show="userForm.firstname.$error.required && (userForm.firstname.$dirty || submitted)" class="help-block">Your first name is required.</p>
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="row">
+        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+          <input type="Password" name="password" class="form-control input-lg" ng-model="user.password" placeholder="Your Password" ng-required="true">
+          <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
+        </div>
+      </div>
+
+      <!-- SIGN IN & REGISTER -->
+      <div class="row">
+        <button class="btn btn-primary-parijan col-sm-offset-3 col-sm-3" href="#/searchvendor" type="submit">Sign In</button>
+        <button class="btn btn-primary-parijan col-sm-3" href="#/register" type="submit" ng-click="gotoRegistrationPage()">Register</button>
+      </div>
+
+      
+    </form>
+  </div>
+
+  <div>
+    <img ng-src="http://www.w3schools.com/bootstrap/cinqueterre.jpg">
+  </div>
+
+</div>

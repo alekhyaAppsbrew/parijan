@@ -1,0 +1,44 @@
+<div class="container">
+
+  <!-- PAGE HEADER -->
+  <div class="row-parijan page-header-bar"><h4>Inbox</h4></div>
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+    <form name="InboxForm" novalidate>
+
+      <!--Sidebar content-->
+      <!--div class="col-sm-2 form-group">
+        Search: <input class="input-lg" ng-model="query"> <br>
+      </div-->
+      
+      IntervalTestCode: {{message}}
+      
+      <div class="ContentInbox">
+        <table st-table="rowCollection" class="table">
+          <tbody>
+            <!--tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in messages | filter:query"-->
+            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in messages">
+              <td>
+                <div>
+                  <!-- NAME & FAVOURITE UI -->
+                  <h4>{{row.service}}</h4>
+                  <h4>{{row.date}} {{row.time}}</h4>
+                  <h4>{{row.status}}</h4>
+                </div>
+              </td>
+
+              <td>
+                <div class="pull-right" ng-click="getTransactionInfo( row.transactionId )">
+                  <span class="glyphicon glyphicon-chevron-right grid-icon"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--button type="submit" class="btn btn-primary-parijan">Prev</button-->
+      <!--button type="submit" class="btn btn-primary-parijan">Next</button-->
+    </form>
+  </div>
+
+</div>

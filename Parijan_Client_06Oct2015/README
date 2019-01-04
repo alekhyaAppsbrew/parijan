@@ -1,41 +1,56 @@
-INSTALL
--------
- Download and copy the archive 'usermanagement.tar' to install area(Example '~/INSTALL' ).
 
-RUN
--------
- 1. Start server that runs on port 3004.
-    Goto location '~/INSTALL/usermanagement/' and use node to run app.js
-      > cd ~/INSTALL/usermanagement/
-      > node app.js 
- 
- 2. Launch Parijan Client webpage.
-    Open browser and goto URL 'http://localhost:3004/#/searchvendor'
-      a. Search Vendors is the default/home page of the application
-      b. Inbox icon next to 'Search Vendors' will redirect to user Inbox page through login page
-         (Example: username=676, password=p )
-      c. Logout icon at RHS closes server session for the user.
+STEPS TO RUN:
+------------
 
-ABOUT
--------
-usermanagement/
+1.Cone the Repo
+```sh
+git clone https://github.com/alekhyaAppsbrew/pizzaTask.git 
+```
+
+2.Change the current working directory
+```sh
+cd ./pizzaTask 
+```
+
+3.Install packages
+```sh
+npm install (yarn) 
+```
+
+4.Run
+```sh
+npm start (yarn start) 
+```
+
+5.Using this URL http://localhost:3000/ in browser we will be able to access the web application.
+
+6.Test
+```sh
+npm test (yarn test) 
+```
+
+7.Build
+```sh
+npm build (yarn build) 
+```
+
+FOLDER STRUCTURE:
+-----------------
+
+pizzaTask/
   |
-  |-- lib/              - Contains route_handler.js contains rout handler for server APIs
+  |-- build/                   - Contains build related files
   |
-  |-- model/            - Contains js file related to server APIs
+  |-- node_modules/            - Contain node related js files(npm packages)
   |
-  |-- node_modules/     - Contain node related js files
+  |-- public/                  - Contains files related to icon images,HTML files.
   |
-  |-- views/            - UI used for testing server
+  |-- src/                     - Contains Components,Containers,Actions,Reducers
   |
-  |-- ParijanClientApp/ - Parijan client pages
+  |-- package.json             - Conatins list of npm packages to install 
   |
-  |-- test/             - contains protractor tests
+  |-- package-lock.json        - Conatins list of npm packages with versions 
   |
-  |-- package.json      - for node package installation
-  |
-  |-- app.js            - Main app js file used to start the server
-  |
-  |-- project.sql       - SQL DB dump of table "project"
+  |-- README                   - Readme File
 
 
